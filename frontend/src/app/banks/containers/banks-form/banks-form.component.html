@@ -1,0 +1,31 @@
+<mat-card>
+
+  <h1 mat-dialog-title class="titulo" >{{ data.titulo }}</h1>
+  <ng-template #titulo class="titulo"> titulo chegou vazil</ng-template>
+
+  <form class="banco" [formGroup]="form">
+
+    <mat-form-field class="banco__nome" hintLabel="Máximo 20 caracteres">
+      <mat-label>Nome do Banco</mat-label>
+      <input matInput #inputBanco maxlength="20" formControlName="nomeBancoControl" required/>      
+      <mat-hint align="end" > {{inputBanco.value.length}}/20</mat-hint>
+      <!-- <mat-error *ngIf="form.get('nomeBancoControl')?.invalid">{{getErrorMessage("nomeBancoControl")}} -->
+      <mat-error *ngIf="form.get('nomeBancoControl')?.invalid">{{getErrorMessage("nomeBancoControl")}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="banco__codigo" hintLabel="Máximo 3 dígitos">
+      <mat-label>Código do Banco</mat-label>
+      <input matInput #codigoBanco maxlength="3" formControlName="codigoBancoControl"/>
+      <mat-error *ngIf="form.get('codigoBancoControl')?.invalid">{{getErrorMessage("codigoBancoControl")}}
+      </mat-error>
+      <mat-hint align="end">{{codigoBanco.value.length}}/3</mat-hint>
+    </mat-form-field>
+
+  </form>
+
+  <div mat-dialog-actions class="actions">
+    <button mat-button mat-dialog-close class="actions__salvar" mat-raised-button color="primary"(click)="onSubmit()">Salvar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial class="actions__cancelar">cancelar</button>
+  </div>
+</mat-card>

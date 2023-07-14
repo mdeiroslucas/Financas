@@ -1,0 +1,9 @@
+<mat-card>
+
+  <h1 mat-dialog-title class="titulo" >{{ data }}</h1>
+  <div mat-dialog-actions class="actions">
+    <button mat-raised-button (click)="onConfirm(true)" color="primary">Sim</button>
+    <button mat-raised-button cdkFocusInitial (click)="onConfirm(false)">Não</button>
+  </div>
+
+</mat-card>

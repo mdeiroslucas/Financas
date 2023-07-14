@@ -1,0 +1,50 @@
+<mat-table [dataSource]="banks" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell  *matCellDef="let bank">{{ bank.name }}</mat-cell>
+  </ng-container>
+
+  <!-- BankCode Column -->
+  <ng-container matColumnDef="codigoBanco">
+    <mat-header-cell *matHeaderCellDef>Codigo do Banco</mat-header-cell>
+    <mat-cell *matCellDef="let bank">{{ bank.codigoBanco }}</mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="acao">
+    <mat-header-cell *matHeaderCellDef class="action-column">
+      <button mat-icon-button color="primary" (click)="onAdd()" class="btn-add">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="action-column">
+      {{ element.acao }}
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Example icon button with a delete icon"
+        (click)="onEdit(element)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Example icon button with a delete icon"
+        (click)="onDelete(element)"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <!-- <ng-container matColumnDef="symbol">
+  <th mat-header-cell *matHeaderCellDef> Symbol </th>
+  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+</ng-container> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

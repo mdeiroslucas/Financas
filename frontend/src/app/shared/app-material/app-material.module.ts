@@ -11,9 +11,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-
 @NgModule({
-exports: [
+  exports: [
     MatTableModule, 
     MatCardModule, 
     MatToolbarModule, 
@@ -25,6 +24,6 @@ exports: [
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule
-]
+  ],
 })
-export class AppMaterialModule { }
+export class AppMaterialModule {}

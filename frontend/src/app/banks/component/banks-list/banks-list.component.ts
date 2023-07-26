@@ -1,16 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Bank } from 'src/app/model/bank';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 import { BanksFormComponent } from '../../containers/banks-form/banks-form.component';
+import { Bank } from '../../model/bank';
+import { BanksService } from '../../services/banks.service';
 
 @Component({
-  selector: 'app-bank-list',
-  templateUrl: './bank-list.component.html',
-  styleUrls: ['./bank-list.component.scss']
+  selector: 'app-banks-list',
+  templateUrl: './banks-list.component.html',
+  styleUrls: ['./banks-list.component.scss']
 })
-export class BankListComponent {
+export class BanksListComponent {
+
   @Input() banks: Bank[]= [];
   @Output() save = new EventEmitter();
   @Output() edit = new EventEmitter();
@@ -25,8 +27,6 @@ export class BankListComponent {
   }
 
   onAdd(){
-    // this.router.navigate(['new'], {relativeTo: this.activatedRoute});
-    // this.router.navigate(['new'], {relativeTo: this.activatedRoute});
     const dialogRef = this.dialog.open(BanksFormComponent, {
         data: 
         {

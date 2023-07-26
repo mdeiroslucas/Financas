@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { BanksRoutingModule } from './banks-routing.module';
-import { BankListComponent } from './component/bank-list/bank-list.component';
-import { BanksComponent } from './containers/banks/banks.component';
-import { BanksFormComponent } from './containers/banks-form/banks-form.component';
-import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
+import { SharedModule } from '../shared/shared.module';
+import { BanksRoutingModule } from './banks-routing.module';
+import { BanksListComponent } from './component/banks-list/banks-list.component';
+import { BanksFormComponent } from './containers/banks-form/banks-form.component';
+import { BanksComponent } from './containers/banks/banks.component';
 
 
 @NgModule({
   declarations: [
-    BankListComponent,
     BanksComponent,
-    BanksFormComponent
+    BanksFormComponent,
+    BanksListComponent
   ],
   imports: [
     CommonModule,
     BanksRoutingModule,
+    AppMaterialModule,
     SharedModule,
-    AppMaterialModule
   ]
 })
 export class BanksModule { }

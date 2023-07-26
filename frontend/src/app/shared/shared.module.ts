@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { AppMaterialModule } from './app-material/app-material.module';
-import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { ConfimationDialogComponent } from './components/confimation-dialog/confimation-dialog.component';
 
 
 
 @NgModule({
   declarations: [
-    ConfirmationDialogComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    ConfimationDialogComponent
   ],
   imports: [
     CommonModule,
     AppMaterialModule
   ],
-  exports: [
-    ErrorDialogComponent,
-    AppMaterialModule
+  exports:[
+    ErrorDialogComponent
   ]
 })
 export class SharedModule { }

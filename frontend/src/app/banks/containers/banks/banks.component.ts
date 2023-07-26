@@ -1,17 +1,18 @@
 import { Component, Output } from '@angular/core';
-import { Bank } from 'src/app/model/bank';
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { BanksFormComponent } from '../banks-form/banks-form.component';
-import { Observable, catchError, of } from 'rxjs';
-import { BanksService } from 'src/app/services/banks.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
+import { catchError, Observable, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+
+import { Bank } from '../../model/bank';
+import { BanksService } from '../../services/banks.service';
+import { BanksFormComponent } from '../banks-form/banks-form.component';
+import { ConfimationDialogComponent } from 'src/app/shared/components/confimation-dialog/confimation-dialog.component';
 
 @Component({
   selector: 'app-banks',
   templateUrl: './banks.component.html',
-  styleUrls: ['./banks.component.scss']
+  styleUrls: ['./banks.component.scss'],
 })
 export class BanksComponent {
   banks$: Observable<Bank[]> | null = null;
@@ -62,17 +63,20 @@ export class BanksComponent {
           data: {
             titulo: 'Você deseja editar o banco?',
             bankName: result.name,
-            bankCode: result.codigoBanco,
+            bankCode: result.bankCode,
             bankId: result._id
           }
         });
+
+        // dialogRef.afterClosed().subscribe()
+
       },
       error: err => this.onError('Não foi possível carregar o banco!'),
     });
   }
 
   onDelete(bank: Bank){
-    const confirmDialog = this.confirmDialog.open(ConfirmationDialogComponent, {
+    const confirmDialog = this.confirmDialog.open(ConfimationDialogComponent, {
       data: "Deseja excluir o banco?"
     });
 

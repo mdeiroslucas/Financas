@@ -37,7 +37,7 @@ public class BankController {
     return bankService.findAll();
   }
 
-  @PostMapping("/new")
+  @PostMapping
   @ResponseStatus(code = HttpStatus.CREATED)
   public BankDTO create(@RequestBody @Valid BankDTO bankDTO){
     return bankService.create(bankDTO);

@@ -4,12 +4,12 @@
     <span>Bancos Cadastrados</span>
   </mat-toolbar>
 
-  <app-bank-list *ngIf="banks$ | async as banks; else loading"
+  <app-banks-list *ngIf="banks$ | async as banks; else loading"
   [banks]="banks"
   (save)="onAdd()"
   (edit)="onEdit($event)"
   (delete)="onDelete($event)"
-  ></app-bank-list>
+  ></app-banks-list>
 
   <ng-template #loading>
     <div class="loading-spinner">

@@ -1,18 +1,22 @@
+import { Location } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Bank } from 'src/app/model/bank';
-import { BanksService } from 'src/app/services/banks.service';
+
+import { BanksService } from '../../services/banks.service';
+import { Bank } from '../../model/bank';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-banks-form',
   templateUrl: './banks-form.component.html',
-  styleUrls: ['./banks-form.component.scss']
+  styleUrls: ['./banks-form.component.scss'],
 })
 export class BanksFormComponent {
+
   bankName: string = this.data.bankName;
-  bankCode: string = this.data.bankCode;
+  bankCode: number = this.data.bankCode;
   titulo: string = this.data.titulo;
   bankId: string = this.data.bankId;
 
@@ -51,7 +55,7 @@ export class BanksFormComponent {
     const record: Partial<Bank> = {
       _id: this.form.value.idControl, 
       name: this.form.value.nomeBancoControl,
-      codigoBanco: this.form.value.codigoBancoControl,
+      bankCode: this.form.value.codigoBancoControl,
     };
 
     console.log(record._id)

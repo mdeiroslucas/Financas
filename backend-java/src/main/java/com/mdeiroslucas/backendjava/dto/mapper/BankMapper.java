@@ -8,6 +8,9 @@ import com.mdeiroslucas.backendjava.model.Bank;
 @Component
 public class BankMapper {
   public BankDTO toDTO(Bank bank) {
+    if (bank == null) {
+      return null;
+    }
     return new BankDTO(bank.getId(), bank.getName(), bank.getBankCode());
   }
 

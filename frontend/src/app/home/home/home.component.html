@@ -1,22 +1,25 @@
-<mat-toolbar>
-  <span>My Application</span>
+<mat-toolbar class="titulo">
+  <span>Escolha a operação</span>
 </mat-toolbar>
 
-<button mat-button>Menu</button>
-<button mat-icon-button aria-label="Example icon-button with a menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
+<ul class="cards">
+  <li>
+    <a [routerLink]="['/banks']" routerLinkActive="router-link-active">
+      <div class="card__bank">
+          <span class="card__bank--title">Banco</span>
+        <img src="assets/edificio.jpg" alt="image of a bank" />
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a [routerLink]="['/banco']" routerLinkActive="router-link-active">
+      <div class="card__bank">
+        <div class="card__bank--title">
+          <span>Conta</span>
+        </div>
+        <img src="assets/poupança.jpg" alt="image of a safe" />
+      </div>
+    </a>
+  </li>
+</ul>

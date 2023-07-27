@@ -21,10 +21,6 @@ public class Bank {
   @NotNull
   private String name;
 
-  private Integer bankCode;
-
-
-
-
+  private Integer bankCode;  
   
 }
